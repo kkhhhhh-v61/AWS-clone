@@ -1,0 +1,76 @@
+/*Admin Header Css*/
+*,
+*:before,
+*:after {
+    font-family: "Montserrat", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.account {
+    font-size: 27px;
+    margin-top: 15px;
+    color: black;
+    margin-left: 350px;
+}
+
+.cart {
+    font-size: 27px;
+    margin-top: 15px;
+    color: black;
+    margin-left: 30px;
+}
+
+.header-pic {
+    width: 325px;
+    height: 115px;
+    display: inline-block;
+    margin-left: 450px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    margin: auto;
+    position: relative;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 10px 20px;
+}
+
+nav a:after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    height: 1.5px;
+    width: 0;
+    left: 0;
+    bottom: 5px;
+    transition: 0.5s;
+    justify-content: center;
+}
+
+nav a:hover:after {
+    width: 100%;
+}

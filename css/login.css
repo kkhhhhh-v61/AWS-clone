@@ -1,0 +1,96 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 26 Mar 2023, 2:12:21 am
+    Author     : morri
+*/
+body,html{
+    font-family: "Montserrat", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logintittle{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.logintittle p{
+    font-size: 12px;
+}
+
+.logintittle .bold{
+    font-size: 25px;
+}
+
+.container {
+    padding: 16px;
+    padding-left: 33.5%;
+}
+
+.container2 {
+    padding-top: 60px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email], input[type=number], input[type=file], textarea {
+    width: 50%;
+    padding: 15px;
+    margin: 7px 0 20px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, input[type=file]:focus, textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+textarea{
+    resize: vertical;
+}
+
+.loginbutM, button {
+    cursor: pointer;
+    width: 503px;
+    padding: 10px 0;
+    transition: 0.8s;
+    letter-spacing: 2px;
+    color: white;
+    background-color: black;
+}
+
+.logbtn{
+    text-align: left;
+}
+
+.logbtn2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.loginbutM:hover, button:hover {
+    color: black;
+    background-color: white;
+}
+
+.create{
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 100px;
+}
+
+.fontsz{
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+a:link {
+    text-decoration: none;
+    color:black;
+}

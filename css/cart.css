@@ -1,0 +1,205 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 6 Apr 2023, 9:25:07 am
+    Author     : morri
+*/
+
+.carttittle{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.carttittle p{
+    font-size: 12px;
+}
+
+.carttittle .bold{
+    font-size: 25px;
+}
+
+.create{
+    text-align: center;
+    font-size: 13px;
+}
+
+
+.product-image {
+    float: left;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}
+
+.product-details {
+    float: left;
+    padding-top: 30px;
+    padding-left: 30px;
+    width: 37%;
+}
+
+.product-price {
+    float: right;
+    padding-top:55px;
+    width: 12%;
+}
+
+.product-quantity {
+    width: 10%;
+    float: left;
+    padding-right: 200px;
+    margin-top: 10px;
+}
+
+.product-removal {
+    padding-top: 50px;
+    padding-right: 100px;
+    width: 10%;
+}
+
+
+/* This is used as the traditional .clearfix class */
+.group:before, .shopping-cart:before, .column-labels:before, .product:before, .totals-item:before,
+.group:after,
+.shopping-cart:after,
+.column-labels:after,
+.product:after,
+.totals-item:after {
+    content: '';
+    display: table;
+}
+
+.group:after, .shopping-cart:after, .column-labels:after, .product:after, .totals-item:after {
+    clear: both;
+}
+
+/* Apply clearfix */
+/* Apply RM signs */
+.product .product-price:before, .product .product-line-price:before, .totals-value:before {
+    content: 'RM';
+}
+
+/* Body/Header stuff */
+body {
+    padding: 0px 0px 0px 0px;
+}
+
+h1 {
+    font-weight: 100;
+}
+
+label {
+    color: #aaa;
+}
+
+.shopping-cart {
+    margin-top: -35px;
+}
+
+/* Product entries */
+.product {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 2px solid #eee;
+    width:100%;
+}
+.product .product-image {
+    text-align: center;
+}
+.product .product-image img {
+    width: 200px;
+}
+.product .product-details .product-title {
+    margin-right: 20px;
+}
+.product .product-details .product-description {
+    margin: 5px 20px 5px 0;
+}
+.product .product-quantity input {
+    width: 40px;
+}
+.product .remove-product {
+    border: 0;
+    padding: 4px 8px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid black;
+}
+.product .remove-product:hover {
+    background-color: white;
+    color: black;
+
+}
+
+/* Totals section */
+.totals .totals-item {
+    float: left;
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.totals .totals-item label {
+    float: left;
+    clear: both;
+    width: 79%;
+
+}
+.totals .totals-item .totals-value {
+    float: left;
+    width: 21%;
+    text-align: right;
+}
+
+span{
+    font-weight: 700;
+}
+
+.checkout {
+    float: right;
+    border: 0;
+    margin-top: 20px;
+    padding: 6px 25px;
+    background-color: #6b6;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 3px;
+}
+
+.checkout:hover {
+    background-color: #494;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    padding: 30px;
+    margin-top: 80px;
+    margin-right: 20px;
+    width:35%;
+    float:right;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.checkout{
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 0;
+    background-color: black;
+    font-size: 14px;
+    border: 2px solid black;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.checkout:hover{
+    background-color: white;
+    color: black;
+}

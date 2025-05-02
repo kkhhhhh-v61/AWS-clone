@@ -1,0 +1,155 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 8 Apr 2023, 9:28:36 pm
+    Author     : morri
+*/
+
+.tittle{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.tittle p{
+    font-size: 12px;
+}
+
+.tittle .bold{
+    font-size: 25px;
+}
+
+
+/**create data button*/
+.container5 .container-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/**get all together*/
+.container5 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 5rem 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    }
+    
+/**create new button*/
+.container5 .container-top .right .btn6 {
+    padding: 10px 13px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: black;
+    border: 2px solid black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal .modal-container .form .btn5, .container5 .container-top .right .btn6:hover {
+    color: black;
+    background-color: white;
+    border:1px solid black;
+}
+
+/**user acc and username length*/
+.container5 .container-body {
+    margin-top: 3rem;
+}
+/**username email phoneno line*/
+.container5 .container-body table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/**padding between each UEP data*/
+.container5 .container-body table td, .container5 .container-body table th {
+    text-align: left;
+    padding: 10px;
+}
+
+/**line between each data*/
+.container5 .container-body table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+
+/**pop out box outside*/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+    padding: 6rem;
+}
+
+/**pop out box insdie*/
+.modal .modal-container {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 10vh auto;
+    padding: 1rem 2rem 2.5rem;
+    transition: 0.5s ease all;
+    animation: animate 0.6s ease;
+}
+
+/**inside pop out box input margin*/
+.modal .modal-container .form .form-control {
+    margin-bottom: 1rem;
+}
+/**inside pop out box tittle and input*/
+.modal .modal-container .form .form-control label {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+/**textbox size*/
+.modal .modal-container .form .form-control input {
+    padding: 0.7rem 1rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/**pop out btn settings*/
+.modal .modal-container .form .btn5 {
+    background-color: black;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    border: 1px solid #111;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+}
+.modal .modal-container .form .btn5:hover {
+    color: black;
+    background-color: white;
+}
+
+/*Analysis*/
+form{
+    width: 100%;
+    margin: auto;
+}
+
+.chart{
+    margin: 170px auto;
+    width: 1000px;
+    height: 500px;
+}
+
+.script .drawHistogram{
+    display: flex;
+}
+
+
+
+

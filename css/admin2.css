@@ -1,0 +1,209 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 8, 2023, 6:43:45 PM
+    Author     : limch
+*/
+*{
+    font-family: "Montserrat", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.top .search{
+    font-size: 27px;
+    margin-top: 15px;
+    color: white;
+    margin-right: 400px;
+}
+
+body{
+    background-color: white;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.account{
+    font-size: 27px;
+    margin-top: 15px;
+    color: black;
+    margin-left: 350px;
+}
+
+.header-pic{
+    margin-top: 20px;
+    width: 400px;
+    display: inline-block;
+    margin-left: -5px;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+}
+
+nav a{
+    position: relative;
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 10px 20px;
+}
+
+nav a:after{
+    content: "";
+    position: absolute;
+    background-color: black;
+    height: 1.5px;
+    width: 0;
+    left: 0;
+    bottom: 5px;
+    transition: 0.5s;
+    justify-content: center;
+}
+
+nav a:hover:after{
+    width: 100%;
+}
+
+/*Admin Add Product*/
+.pageContent{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.pageContent p{
+    font-size: 12px;
+}
+
+.pageContent .bold{
+    font-size: 25px;
+}
+
+.container {
+    padding: 16px;
+    padding-left: 33.5%;
+}
+
+.container2 {
+    padding-top: 60px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=number], input[type=file]{
+    width: 50%;
+    padding: 15px;
+    margin: 7px 0 20px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=number]:focus, input[type=file]:focus{
+    background-color: #ddd;
+    outline: none;
+}
+
+.btn3{
+    justify-content: center;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: black;
+    border: 2px solid black;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    margin-left: 700px;
+}
+
+.btn3:hover{
+    background-color: white;
+    color: black;
+}
+
+.logbtn{
+    text-align: left;
+}
+
+
+.create{
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 100px;
+}
+
+.fontsz{
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+a:link {
+    text-decoration: none;
+    color:black;
+}
+
+/*Admin Edit Product*/
+.product-display{
+   margin: 2rem 0;
+}
+
+.product-display .product-display-table{
+   text-align: center;
+   width: 90%;
+   margin-left: 5%;
+   margin-right: 5%;
+}
+
+.product-display .product-display-table thead{
+    font-size: 13px;
+    letter-spacing: 2px;
+    background: #f1f1f1;
+    font-weight: bold;
+}
+
+.product-display .product-display-table td{
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    background: #f1f1f1;
+}
+
+.btn{
+    padding: 10px 13px;
+    color: white !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: black;
+    border: 2px solid black;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.btn:hover{
+    background-color: white;
+    color: black !important;
+}
+
+.searchBtn{
+    border: none;
+    background-color: white;
+    font-size: 25px;
+}

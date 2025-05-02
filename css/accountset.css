@@ -1,0 +1,132 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 8 Apr 2023, 4:59:03 pm
+    Author     : morri
+*/
+
+
+.tittle{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.tittle p{
+    font-size: 12px;
+}
+
+.tittle .bold{
+    font-size: 25px;
+}
+
+.settingstitle {
+    font-weight: normal;
+    font-size: 20px;
+    margin-left: 200px;
+    margin-right:200px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+.settingstitle2 {
+    font-weight: normal;
+    font-size: 20px;
+    margin-left: 200px;
+    margin-right:200px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+hr.solid {
+    border-top: 3px solid black;
+}
+/* Totals section */
+.line {
+    float: left;
+    clear: both;
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+.line label {
+    margin-left: 300px;
+    font-weight: bold;
+}
+.text {
+    float: right;
+    width: 60%;
+    text-align: left;
+}
+
+.container {
+    margin-left: 270px;
+}
+.container2 {
+    padding-top: 60px;
+}
+.fontsz{
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* Full-width input fields */
+input[type=email],[type=text],[type=tel],[type=password] {
+    width: 80%;
+    padding: 15px;
+    margin: 7px 0 20px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.btn3{
+    justify-content: center;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: black;
+    border: 2px solid black;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    margin-left: 660px;
+}
+
+.btn3:hover{
+    background-color: white;
+    color: black;
+}
+
+.btn4{
+    justify-content: center;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: black;
+    border: 2px solid black;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 50px;
+    margin-left: 660px;
+}
+
+.btn4:hover{
+    background-color: white;
+    color: black;
+}
+
+.pic{
+    width:250px;
+    height: 250px;
+}

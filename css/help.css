@@ -1,0 +1,65 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 8 Apr 2023, 8:46:49 pm
+    Author     : morri
+*/
+
+.tittle{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.tittle p{
+    font-size: 12px;
+}
+
+.tittle .bold{
+    font-size: 25px;
+}
+
+.desc1{
+    float: left;
+    margin-top: 50px;
+    margin-right: 250px;
+    margin-left: 250px;
+    font-size: 15px;
+}
+
+.desc{
+    float: left;
+    margin-right: 250px;
+    margin-left: 250px;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 23px;
+}
+
+.tittle2{
+    font-size: 15px;
+    margin-left:250px;
+
+}
+
+.btn5{
+    justify-content: center;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: black;
+    border: 2px solid black;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    margin-left: 700px;
+}
+
+.btn5:hover{
+    background-color: white;
+    color: black;
+}

@@ -1,0 +1,187 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 25, 2023, 9:32:49 PM
+    Author     : limch
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    font-family: "Montserrat", sans-serif;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+.main-wrapper{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    max-width: 1400px;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+.product-div{
+    margin: 1rem 0;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: white;
+    border-radius: 3px;
+    column-gap: 10px;
+}
+.product-div-left{
+    padding: 20px;
+}
+.product-div-right{
+    padding: 20px;
+}
+.img-container img{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+.hover-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+}
+.hover-container div{
+    border: 2px solid white;
+    border-radius: 3px;
+    margin: 0 10px 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.active{
+    border-color: black !important;
+}
+.hover-container div:hover{
+    border-color: black;
+}
+.hover-container div img{
+    width: 77px;
+    height: 77px;
+    cursor: pointer;
+}
+.product-div-right span{
+    display: block;
+}
+
+.product-home{
+    font-size: 11.5px;
+}
+
+.product-brand{
+    font-size: 10.4px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.product-name{
+    font-size: 25.5px;
+    margin-bottom: 22px;
+    font-weight: 1000;
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+}
+.product-price{
+    font-size: 15px;
+}
+
+hr{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    opacity: 0.2;
+}
+
+.size{
+    font-size: 10.4px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+label{
+    position: relative;
+    width: auto;
+    height: 48.8px;
+    font-size: 13px;
+    padding: 7px 15px;
+    align-items: center;
+    border: 2px solid #D8D8D8;
+    cursor: pointer;
+}
+
+label:before{
+    width: auto;
+    height: 48.8px;
+    border: 2px solid #D8D8D8;
+    padding: 7px 15px;
+}
+
+input[type="radio"]:checked + label{
+    border: 3px solid black;
+}
+
+.word{
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.product-description{
+
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-top: 22px;
+}
+
+.btn-groups button{
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 15px 16px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-cart-btn{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-top: 40px;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 15px 16px;
+    transition: all 0.3s ease;
+}
+.add-cart-btn:hover{
+    background-color: white;
+    color: black;
+}
+
+
