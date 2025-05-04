@@ -28,7 +28,7 @@ $sales_result = mysqli_query($con, $sales_query);
     <link href="../css/admin2.css" rel="stylesheet" type="text/css" />
     <link href="../css/tableSort.css" rel="stylesheet" type="text/css" />
     <meta charset="UTF-8">
-    <title>Analysis | Eversummer Florist</title>
+    <title>Blooms Co. | Analysis</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style>
         .page-header {
