@@ -1,88 +1,257 @@
-body,html{
+/* Base styles */
+body {
     font-family: "Montserrat", sans-serif;
-    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
     margin: 0;
-    box-sizing: border-box;
+    padding: 0;
 }
 
-.logintittle{
+/* Section Navigation */
+.section-nav {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-size: var(--font-size-base);
+    letter-spacing: 0.5px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: 500;
+    transition: var(--transition-base);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+    background-color: var(--color-light);
+    text-decoration: none;
+}
+
+.nav-link:after {
+    content: "";
+    position: absolute;
+    background-color: var(--color-primary);
+    height: 2px;
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.nav-link:hover:after {
     width: 100%;
-    text-align: center;
-    margin-top: 50px;
 }
 
-.logintittle p{
-    font-size: 12px;
+/* Login container */
+.login-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.logintittle .bold{
-    font-size: 25px;
+/* Wider content container for terms, shipping, and privacy policy */
+.wide-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-    padding: 16px;
-    padding-left: 33.5%;
+/* Login header */
+.login-header {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
 }
 
-.container2 {
-    padding-top: 60px;
+.breadcrumb {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password],input[type=email], input[type=number], input[type=file], textarea {
-    width: 50%;
-    padding: 15px;
-    margin: 7px 0 20px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
+.login-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, input[type=file]:focus, textarea:focus {
-    background-color: #ddd;
-    outline: none;
+/* Form styles */
+.login-form {
+    padding: 20px;
 }
 
-textarea{
-    resize: vertical;
-}
-
-.loginbutM, button {
-    cursor: pointer;
-    width: 503px;
-    padding: 10px 0;
-    transition: 0.8s;
-    letter-spacing: 2px;
-    color: white;
-    background-color: black;
-}
-
-.logbtn{
-    text-align: left;
-}
-
-.logbtn2{
-    text-align: center;
+.form-group {
     margin-bottom: 20px;
 }
 
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+    line-height: 1.6;
+    color: #333;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Content styling */
+.content-section {
+    margin-bottom: 20px;
+}
+
+.content-section h1 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 20px 0 15px;
+}
+
+.content-section p {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.content-section ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.content-section li {
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Textarea specific styles */
+.form-control[rows] {
+    min-height: 100px;
+    padding: 15px;
+    line-height: 1.5;
+}
+
+.form-control[rows]:focus {
+    padding: 15px;
+}
+
+/* Password toggle */
+.password-toggle {
+    position: relative;
+}
+
+.password-input-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.toggle-password ion-icon {
+    font-size: 16px;
+    pointer-events: none;
+}
+
+/* Button styles */
+.loginbutM, button {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 .loginbutM:hover, button:hover {
-    color: black;
-    background-color: white;
+    background-color: #333;
 }
 
-.create{
+/* Links */
+a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Additional styles */
+.create {
     text-align: center;
+    margin-top: 20px;
     font-size: 13px;
-    margin-bottom: 100px;
 }
 
-.fontsz{
+.fontsz {
     font-size: 11px;
     letter-spacing: 2px;
-}
-
-a:link {
-    text-decoration: none;
-    color:black;
+    color: #666;
 }

@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include("../config/helper.php"); // assuming you have a separate config file for database connection
+include("../config/connect.php"); // assuming you have a separate config file for database connection
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
@@ -25,37 +25,40 @@ if (isset($_SESSION['username'])) {
                 echo "Error: " . mysqli_error($con);
             }
         }
-        ?>
+?>
         <!DOCTYPE html>
         <html>
-            <head>
-                <link href="../css/editaccount.css" rel="stylesheet" type="text/css"/>
-                <title>Edit Profile</title>
-            </head>
-            <body>
-                <?php include './header.php'; ?>
-                <h2>Edit Profile</h2>
-                <form method="POST">
-                    <div class="container2">
-                        <div class="container">
-                            <div class="fontsz">
-                                <label for="email">Email:</label><br>
-                                <input type="email" id="email" name="email" value="<?php echo $email; ?>" required><br><br>
-                                <label for="address">Address:</label><br>
-                                <input type="text" id="address" name="address" value="<?php echo $address; ?>" required><br><br>
-                                <label for="phone">Phone:</label><br>
-                                <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>" required><br><br>
-                            </div>
+
+        <head>
+            <link href="../css/editaccount.css" rel="stylesheet" type="text/css" />
+            <title>Blooms Co. | Edit Account</title>
+        </head>
+
+        <body>
+            <?php include './header.php'; ?>
+            <h2>Edit Profile</h2>
+            <form method="POST">
+                <div class="container2">
+                    <div class="container">
+                        <div class="fontsz">
+                            <label for="email">Email:</label><br>
+                            <input type="email" id="email" name="email" value="<?php echo $email; ?>" required><br><br>
+                            <label for="address">Address:</label><br>
+                            <input type="text" id="address" name="address" value="<?php echo $address; ?>" required><br><br>
+                            <label for="phone">Phone:</label><br>
+                            <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>" required><br><br>
                         </div>
                     </div>
-                    <div class="logbtn2">
-                        <input class="loginbutM" type="submit" name="submit" value="Save Changes">
-                    </div>
-                </form>
-                <?php include './footer.php'; ?>
-            </body>
+                </div>
+                <div class="logbtn2">
+                    <input class="loginbutM" type="submit" name="submit" value="Save Changes">
+                </div>
+            </form>
+            <?php include './footer.php'; ?>
+        </body>
+
         </html>
-        <?php
+<?php
     } else {
         echo "Error: User not found.";
     }

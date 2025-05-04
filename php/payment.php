@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>PAYMENT |SNEAKER VAULT</title>
+    <title>Blooms Co. | Payment</title>
 </head>
 
 <body>
     <?php
     @session_start();
-    include '../config/helper.php';
+    include '../config/connect.php';
     include '../functions/common_function.php';
 
     // Get total amount from cart
@@ -30,6 +30,8 @@
         $row_product_price = mysqli_fetch_array($result_products);
         $product_price = $row_product_price['product_price'];
         $total_price += $product_price * $row['quantity'];
+        // Format total price to 2 decimal places
+        $total_price = number_format($total_price, 2);
     }
 
     // Process payment
@@ -85,30 +87,36 @@
     ?>
     <?php include './header.php'; ?>
 
-    <div class="logintittle">
-        <p>Home/</p></br>
-        <p class="bold"><b>PAYMENT</b></p>
-    </div>
-
-    <div class="container2">
-        <div class="container">
-            <form id="payment-form" method="POST" action="">
-                <div class='fontsz'>
-                    <label for="payAmt">TOTAL AMOUNT</label><br>
-                    <input type="number" name="payAmt" id="payAmt" value="<?php echo $total_price; ?>" readonly>
-                    <br><label for="payDesc">PAYMENT DESCRIPTION</label><br>
-                    <textarea id="payDesc" name="payDesc" required>Payment for Sneaker Vault order</textarea>
-                    <br><label for="tngID">TOUCH 'n GO EWALLET ID:</label><br>
-                    <input type="text" name="tngID" id="tngID" required>
-                </div>
-                <div class="logbtn">
-                    <br><button class="log" type="submit">PAY WITH TOUCH 'n GO EWALLET</button>
-                </div>
-            </form>
+    <div class="login-container">
+        <div class="login-header">
+            <h2 class="login-title">PAYMENT</h2>
         </div>
-    </div>
 
-    <div class="create"><a href="cart.php">Back</a></div>
+        <form id="payment-form" method="POST" action="" class="login-form">
+            <div class="form-group">
+                <label for="payAmt">TOTAL AMOUNT</label>
+                <input type="number" name="payAmt" id="payAmt" value="<?php echo number_format($total_price, 2); ?>" readonly class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="payDesc">PAYMENT DESCRIPTION</label>
+                <textarea id="payDesc" name="payDesc" required class="form-control">Payment for Sneaker Vault order</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="tngID">TOUCH 'n GO EWALLET ID:</label>
+                <input type="text" name="tngID" id="tngID" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="loginbutM">PAY WITH TOUCH 'n GO EWALLET</button>
+            </div>
+
+            <div class="create">
+                <a href="cart.php">Back to Cart</a>
+            </div>
+        </form>
+    </div>
     <?php include './footer.php'; ?>
 </body>
 

@@ -1,52 +1,61 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <meta charset="UTF-8">
-    <link href="../css/contact.css" rel="stylesheet" type="text/css" />
-
-    <title>Contact Us | Sneaker Vault</title>
+    <link href="../css/login.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <title>Blooms Co. | Contact Us</title>
 </head>
 
 <body>
     <?php include './header.php'; ?>
 
-    <nav>
-        <a href="terms.php">T&C</a>
-        <a href="shipping.php">SHIPPING</a>
-        <a href="privacypolicy.php">PRIVACY POLICY</a>
+    <nav class="section-nav">
+        <div class="nav-container">
+            <a href="terms.php" class="nav-link">T&C</a>
+            <a href="shipping.php" class="nav-link">SHIPPING</a>
+            <a href="privacypolicy.php" class="nav-link">PRIVACY POLICY</a>
+        </div>
     </nav>
 
-    <div class="tittle">
-        <p>Home/</p></br>
-        <p class="bold"><b>CONTACT US</b></p>
-    </div>
+    <div class="login-container">
+        <div class="login-header">
+            <h2 class="login-title">CONTACT US</h2>
+        </div>
 
-    <p class="texta">Got something in mind? Need assistance?<br>
-        Drop us a message and we’ll get back to you.</p>
-
-    <div class="container2">
-        <div class="container">
-            <div class="fontsz"
-                <label for="text">NAME</label><br>
-                <input type="text" name="text" id="text" maxlength="14" minlength="6" required>
-                <br><label for="email">EMAIL</label><br>
-                <input type="email" name="email" id="email" maxlength="35" required>
-                <br><label for="text">PHONE NUMBER</label><br>
-                <input type="text" name="phoneno" id="phoneno" maxlength="12" minlength="9" required>
+        <form action="" method="post" class="login-form">
+            <div class="form-group">
+                <label for="name">NAME</label>
+                <input type="text" name="name" id="name" class="form-control"
+                    maxlength="14" minlength="6" required>
             </div>
-        </div>
-        <div class="fontsz2"
-            <br><label for="text">MESSAGE</label><br>
-            <textarea id="area" name="area" rows="2" cols="123"></textarea>
-        </div>
-    </div>
 
-    <br><button class="btn4">SUBMIT</button>
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="email" name="email" id="email" class="form-control"
+                    maxlength="35" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">PHONE NUMBER</label>
+                <input type="text" name="phone" id="phone" class="form-control"
+                    maxlength="12" minlength="9" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">MESSAGE</label>
+                <textarea name="message" id="message" class="form-control"
+                    rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" name="submit" class="loginbutM">SUBMIT</button>
+            </div>
+        </form>
+    </div>
 
     <?php include './footer.php'; ?>
-     
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include './adminheader.php';
-include '../config/helper.php';
+include '../config/connect.php';
 
 if (isset($_GET['id'])) {
     $delete_id = $_GET['id'];

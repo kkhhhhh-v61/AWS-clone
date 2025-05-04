@@ -10,46 +10,43 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Create Admin Account | Eversummer Florist</title>
+    <title>Blooms Co. | Admin Registration</title>
 </head>
 
 <body
     <?php include './adminheader.php'; ?>
 
-    <div class="pageContent">
-    <p>Home/Account/</p></br>
-    <p class="bold"><b>CREATE ADMIN ACCOUNT</b></p>
+    <div class="login-container">
+    <div class="login-header">
+        <h2 class="login-title">ADMIN REGISTRATION</h2>
     </div>
 
-    <div class="container2">
-        <div class="container">
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="fontsz">
-                    <!--username-->
-                    <label for="user_username">ADMIN ID</label><br>
-                    <input type="text" name="admin_id" id="admin_id"
-                        placeholder="Enter your username" required="required">
-
-                    <!--pass-->
-                    <br><label for="user_password">PASSWORD</label><br>
-                    <input type="password" name="admin_password" id="admin_password"
-                        placeholder="Enter your password" required="required">
-
-                    <!--c-pass-->
-                    <br><label for="con_user_password">CONFIRM PASSWORD</label><br>
-                    <input type="password" name="con_admin_password" id="con_admin_password"
-                        placeholder="Enter your password" required="required">
-                </div>
-
-                <div class="logbtn">
-                    <br><input type="submit" class="loginbutM" value="REGISTER" name="admin_register">
-                </div>
-            </form>
+    <form action="" method="post" enctype="multipart/form-data" class="login-form">
+        <div class="form-group">
+            <label for="admin_id">ADMIN ID</label>
+            <input type="text" name="admin_id" id="admin_id" class="form-control" required>
         </div>
+
+        <div class="form-group">
+            <label for="admin_password">PASSWORD</label>
+            <input type="password" name="admin_password" id="admin_password" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="con_admin_password">CONFIRM PASSWORD</label>
+            <input type="password" name="con_admin_password" id="con_admin_password" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" name="admin_register" class="loginbutM">REGISTER</button>
+        </div>
+
+        <div class="create">
+            Have an account? <a href="adminlogin.php">Login</a>
+        </div>
+    </form>
     </div>
-
-    <div class="create">Have an account?<a href="adminlogin.php"> Login</a></div>
-
+    <?php include '../php/footer.php'; ?>
 </body>
 
 </html>

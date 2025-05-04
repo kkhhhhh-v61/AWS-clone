@@ -40,15 +40,12 @@ function cart()
             // If the item is already in the cart, update the quantity
             $update_query = "UPDATE cart_details SET quantity = quantity + $quantity WHERE ip_address='$get_ip_add' AND product_id=$get_product_id";
             $result_query = mysqli_query($con, $update_query);
-            echo "<script>alert('Item quantity updated in cart')</script>";
         } else {
             // If the item is not in the cart, insert it with the specified quantity
             $insert_query = "INSERT INTO cart_details (product_id, ip_address, quantity) VALUES ($get_product_id, '$get_ip_add', $quantity)";
             $result_query = mysqli_query($con, $insert_query);
-            echo "<script>alert('Item successfully added to cart')</script>";
         }
-        // Redirect back to the same product details page
-        echo "<script>window.open('productDetails.php?product_id=$get_product_id','_self')</script>";
+        // Don't redirect here, we'll handle that in productDetails.php
     }
 }
 

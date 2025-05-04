@@ -151,9 +151,9 @@ a:link {
 
 .product-display .product-display-table{
     text-align: center;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .product-display .product-display-table thead{
@@ -163,11 +163,13 @@ a:link {
     font-weight: bold;
 }
 
-.product-display .product-display-table td{
+.product-display .product-display-table td,
+.product-display-table td {
     padding: 10px;
     font-size: 12px;
     letter-spacing: 2px;
     background: #f1f1f1;
+    width: 12.5%;
 }
 
 .searchBtn{

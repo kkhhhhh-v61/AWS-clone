@@ -9,67 +9,72 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Create Account | Sneaker Vault</title>
+    <title>Blooms Co. | Register</title>
 </head>
 
 <body
     <?php include './header.php'; ?>
-
-    <div class="pageContent">
-    <p>Home/Account/</p></br>
-    <p class="bold"><b>CREATE ACCOUNT</b></p>
+    <div class="login-container">
+    <div class="login-header">
+        <h2 class="login-title">CREATE ACCOUNT</h2>
     </div>
 
-    <div class="container2">
-        <div class="container">
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="fontsz">
-                    <!--username-->
-                    <label for="user_username">USERNAME</label><br>
-                    <input type="text" name="user_username" id="user_username"
-                        placeholder="Enter your username" required="required" minlength="5">
-
-                    <!--email-->
-                    <br><label for="user_email">EMAIL</label><br>
-                    <input type="email" name="user_email" id="user_email"
-                        placeholder="Enter your email" required="required">
-
-                    <!--image-->
-                    <br><label for="user_image">PROFILE PICTURE (optional)</label><br>
-                    <input type="file" name="user_image" id="user_image">
-
-                    <!--user add-->
-                    <br><label for="user_address">ADDRESS</label><br>
-                    <input type="text" name="user_address" id="user_address"
-                        placeholder="Enter your address" required="required">
-
-                    <!--user contact-->
-                    <br><label for="user_conatct">CONTACT</label><br>
-                    <input type="text" name="user_contact" id="user_conatct"
-                        placeholder="Enter your contact" required="required" minlength="7"
-                        pattern="\d{7,}" title="Do not include 'space' in your contact">
-
-
-
-                    <!--pass-->
-                    <br><label for="user_password">PASSWORD</label><br>
-                    <input type="password" name="user_password" id="user_password"
-                        placeholder="Enter your password" required="required" minlength="7">
-
-                    <!--c-pass-->
-                    <br><label for="con_user_password">CONFIRM PASSWORD</label><br>
-                    <input type="password" name="con_user_password" id="con_user_password"
-                        placeholder="Enter your password" required="required" minlength="7">
-                </div>
-
-                <div class="logbtn">
-                    <br><input type="submit" class="loginbutM" value="REGISTER" name="user_register">
-                </div>
-            </form>
+    <form action="" method="post" enctype="multipart/form-data" class="login-form">
+        <div class="form-group">
+            <label for="user_username">USERNAME</label>
+            <input type="text" name="user_username" id="user_username" class="form-control" required minlength="5">
         </div>
-    </div>
 
-    <div class="create">Have an account?<a href="login.php"> Login</a></div>
+        <div class="form-group">
+            <label for="user_email">EMAIL</label>
+            <input type="email" name="user_email" id="user_email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="user_image">PROFILE PICTURE (optional)</label>
+            <input type="file" name="user_image" id="user_image" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="user_address">ADDRESS</label>
+            <input type="text" name="user_address" id="user_address" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="user_contact">CONTACT</label>
+            <input type="text" name="user_contact" id="user_contact" class="form-control" required minlength="7" pattern="\d{7,}" title="Do not include 'space' in your contact">
+        </div>
+
+        <div class="form-group password-toggle">
+            <label for="user_password">PASSWORD</label>
+            <div class="password-input-container">
+                <input type="password" name="user_password" id="user_password" class="form-control" required minlength="7">
+                <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+                    <ion-icon name="eye-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group password-toggle">
+            <label for="con_user_password">CONFIRM PASSWORD</label>
+            <div class="password-input-container">
+                <input type="password" name="con_user_password" id="con_user_password" class="form-control" required minlength="7">
+                <button type="button" class="toggle-password" onclick="togglePasswordVisibility2()">
+                    <ion-icon name="eye-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" name="user_register" class="loginbutM">REGISTER</button>
+        </div>
+
+        <div class="create">
+            Have an account? <a href="login.php">Login</a>
+        </div>
+    </form>
+    </div>
+    <?php include './footer.php'; ?>
 
 </body>
 
@@ -127,11 +132,27 @@ if (isset($_POST['user_register'])) {
         // Upload user image
         $user_image = $_FILES['user_image']['name'];
         $user_image_tmp = $_FILES['user_image']['tmp_name'];
+        $upload_dir = "../php/user_images/"; // Path relative to register.php
 
         if (!empty($user_image)) {
-            move_uploaded_file($user_image_tmp, "./php/user_images/$user_image");
+            // Ensure the upload directory exists
+            if (!file_exists($upload_dir)) {
+                mkdir($upload_dir, 0777, true);
+            }
+
+            // Move the uploaded file
+            if (move_uploaded_file($user_image_tmp, $upload_dir . $user_image)) {
+                "<script>console.log('Profile picture uploaded successfully.')</script>";
+            } else {
+                "<script>console.log('Error uploading profile picture.')</script>";
+                $user_image = "default.png";
+            }
         } else {
             $user_image = "default.png";
+            // Ensure default.png exists in the user_images directory
+            if (!file_exists($upload_dir . "default.png")) {
+                copy("../php/default.png", $upload_dir . "default.png");
+            }
         }
 
         // Insert user data into the table

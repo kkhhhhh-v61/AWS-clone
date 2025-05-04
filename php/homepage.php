@@ -1,197 +1,230 @@
-<!DOCTYPE html>
+<?php
+require_once '../config/connect.php';
 
+// Get best selling products (top 5 based on sales)
+$best_selling_query = "SELECT p.*, b.brand_title as brand_name
+                      FROM products p 
+                      JOIN product_sales ps ON p.product_id = ps.product_id 
+                      JOIN brands b ON p.brand_id = b.brand_id
+                      ORDER BY ps.total_quantity_sold DESC 
+                      LIMIT 5";
+$best_selling_result = $con->query($best_selling_query);
+$best_selling = $best_selling_result->fetch_all(MYSQLI_ASSOC);
+
+// Get featured products (top 5)
+$featured_query = "SELECT p.*, b.brand_title as brand_name
+                  FROM products p 
+                  JOIN brands b ON p.brand_id = b.brand_id
+                  WHERE isFeatured = 1 
+                  ORDER BY date DESC 
+                  LIMIT 5";
+$featured_result = $con->query($featured_query);
+$featured = $featured_result->fetch_all(MYSQLI_ASSOC);
+
+// Get new arrivals (top 5 based on date)
+$new_arrivals_query = "SELECT p.*, b.brand_title as brand_name
+                      FROM products p 
+                      JOIN brands b ON p.brand_id = b.brand_id
+                      ORDER BY date DESC 
+                      LIMIT 5";
+$new_arrivals_result = $con->query($new_arrivals_query);
+$new_arrivals = $new_arrivals_result->fetch_all(MYSQLI_ASSOC);
+?>
+
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="../css/homepage.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Homepage | Ever Summer Florist</title>
+    <title>Blooms Co. | Homepage</title>
 </head>
 
 <body>
     <?php include './header.php'; ?>
+    <div class="page-header">
+        <h2>HOME</h2>
+    </div>
     <!-- Slideshow container -->
     <div class="slideshow-container">
-
-        <!--resize image in photos to fit properly width:600 height:271-->
-
-        <div class="mySlides fade">
-            <center>
-                <div class="pic1">
-                    <a href="#">
-                        <img src="../images/slide1.png" width="1280px" height="533px">
-                    </a>
+        <div class="slideshow-wrapper">
+            <!-- Slideshow Images -->
+            <div class="mySlides">
+                <div class="slide-image">
+                    <img src="../images/slides1.png" alt="Slide 1">
                 </div>
-            </center>
-        </div>
+            </div>
 
-        <div class="mySlides fade">
-            <center>
-                <div class="pic1">
-                    <a href="#">
-                        <img src="../images/slides2.jpg" width="1280px" height="533px">
-                    </a>
+            <div class="mySlides">
+                <div class="slide-image">
+                    <img src="../images/slides2.jpg" alt="Slide 2">
                 </div>
-            </center>
-        </div>
+            </div>
 
-        <div class="mySlides fade">
-            <center>
-                <div class="pic1">
-                    <a href="#">
-                        <img src="../images/Slides3.png" width="1280px" height="533px">
-                    </a>
+            <div class="mySlides">
+                <div class="slide-image">
+                    <img src="../images/slides3.png" alt="Slide 3">
                 </div>
-            </center>
+            </div>
         </div>
 
         <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="slideshow-nav-prev">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        </div>
+        <div class="slideshow-nav-next">
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <!-- The dots/circles -->
+        <div class="slideshow-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
     </div>
 
-    <div class="pageContent">
-        <p class="bold"><b>BEST SELLING</b></p>
-    </div>
-
-    <div class="product-list-container">
-        <div class="product-list">
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-mika-graduation-bear-bouquet-1080x1080-01.jpg" usemap="#sneaker5-map">
-                <map name="sneaker5-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=56" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Graduation Bear Bouquet</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 139.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-calypso-sunflower-rose-bouquet-1080x1080-01_889f28e6-2f29-4ceb-8148-b274a22c6374.jpg" usemap="#short2-map">
-                <map name="short2-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=53" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Calypso Sunflower & Rose Bouquet</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 179.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-cheyenne-1080x1080-01_744d1f8e-b6cb-4a7a-ba11-94dc116d908f.jpg" usemap="#cap3-map">
-                <map name="cap3-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=47" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Cheyenne</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 169.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-sadie-white-1080x1080-01_fc3937f3-a6be-462d-9963-cdf2a10dde7d.jpg" usemap="#pants1-map">
-                <map name="pants1-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=48" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Sadie White</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 109.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-hat-box-tinkerbell-sunflower-mini-flower-box-1080x1080-02.jpg" usemap="#sneaker1-map">
-                <map name="sneaker1-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=55" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Tinkerbell Sunflower Mini Flower Box</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 99.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-madelyn-white-1080x1080-01.jpg" usemap="#shirt1-map">
-                <map name="shirt1-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=51" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Madelyn White</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 109.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-janice-babys-breath-bouquet-1080x1080-01.jpg" usemap="#sneaker14-map">
-                <map name="sneaker14-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=52" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Baby Breath Bouquet</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 89.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-annabeth-pink-lily-bouquet-1080x1080-01.jpg" usemap="#short4-map">
-                <map name="short4-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=44" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Annabeth Pink Lily Bouquet</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 209.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-amelia-1080x1080-01.jpg" usemap="#pants4-map">
-                <map name="pants4-map">
-                    <area href="http://localhost:8000/productDetails.php?product_id=54" coords="-1,1,997,998" shape="rect">
-                </map>
-                <p class="product-list-name">Amelia</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 99.00</p>
-            </div>
-
-            <div class="product">
-                <img class="product-list-pic" src="../images/bloomthis-bouquet-esther-white-1080x1080-01.jpg" usemap="#shirt5-map">
-                <map name="shirt5-map">
-                </map>
-                <p class="product-list-name">Esther White</p>
-                <p class="product-list-brand">Blooms Co.</p>
-                <p class="product-list-price">RM 109.00</p>
+    <!-- Best Selling Section -->
+    <div class="homepage-section">
+        <h2 class="homepage-section-title">Best Selling</h2>
+        <div class="product-grid-container">
+            <div class="product-grid">
+                <?php foreach ($best_selling as $product): ?>
+                    <div class="product-card" onclick="window.location.href='productDetails.php?product_id=<?php echo $product['product_id']; ?>'">
+                        <div class="product-overlay"></div>
+                        <img class="product-image" src="../images/<?php echo htmlspecialchars($product['product_image1']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
+                        <div class="product-card-content">
+                            <p class="product-name"><?php echo htmlspecialchars($product['product_name']); ?></p>
+                            <p class="product-brand"><?php echo htmlspecialchars($product['brand_name']); ?></p>
+                            <p class="product-price"><?php echo number_format($product['product_price'], 2); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-        <center><a href="product.php"><button type="button" class="view-all-btn">VIEW ALL</button></a></center>
     </div>
 
+    <!-- Featured Section -->
+    <div class="homepage-section">
+        <h2 class="homepage-section-title">Featured Products</h2>
+        <div class="product-grid-container">
+            <div class="product-grid">
+                <?php foreach ($featured as $product): ?>
+                    <div class="product-card" onclick="window.location.href='productDetails.php?product_id=<?php echo $product['product_id']; ?>'">
+                        <div class="product-overlay"></div>
+                        <img class="product-image" src="../images/<?php echo htmlspecialchars($product['product_image1']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
+                        <div class="product-card-content">
+                            <p class="product-name"><?php echo htmlspecialchars($product['product_name']); ?></p>
+                            <p class="product-brand"><?php echo htmlspecialchars($product['brand_name']); ?></p>
+                            <p class="product-price"><?php echo number_format($product['product_price'], 2); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
 
+    <!-- New Arrivals Section -->
+    <div class="homepage-section">
+        <h2 class="homepage-section-title">New Arrivals</h2>
+        <div class="product-grid-container">
+            <div class="product-grid">
+                <?php foreach ($new_arrivals as $product): ?>
+                    <div class="product-card" onclick="window.location.href='productDetails.php?product_id=<?php echo $product['product_id']; ?>'">
+                        <div class="product-overlay"></div>
+                        <img class="product-image" src="../images/<?php echo htmlspecialchars($product['product_image1']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
+                        <div class="product-card-content">
+                            <p class="product-name"><?php echo htmlspecialchars($product['product_name']); ?></p>
+                            <p class="product-brand"><?php echo htmlspecialchars($product['brand_name']); ?></p>
+                            <p class="product-price"><?php echo number_format($product['product_price'], 2); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
 
     <script>
-        let slideIndex = 1;
+        var slideIndex = 1;
+        var slideshowInterval;
+        var isPaused = false;
+
+        // Start the slideshow
         showSlides(slideIndex);
+        startSlideshow();
+
+        // Add hover events
+        var slideshowContainer = document.querySelector('.slideshow-container');
+        slideshowContainer.addEventListener('mouseenter', pauseSlideshow);
+        slideshowContainer.addEventListener('mouseleave', resumeSlideshow);
 
         function plusSlides(n) {
             showSlides(slideIndex += n);
+            resetTimer();
         }
 
         function currentSlide(n) {
             showSlides(slideIndex = n);
+            resetTimer();
         }
 
         function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {
-                slideIndex = 1
-            }
-            if (n < 1) {
-                slideIndex = slides.length
-            }
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+
+            // Reset all slides
             for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
                 slides[i].style.display = "none";
             }
+
+            // Handle edge cases
+            if (n > slides.length) {
+                n = 1;
+            }
+            if (n < 1) {
+                n = slides.length;
+            }
+
+            // Show the current slide
+            slides[n - 1].style.display = "block";
+            slides[n - 1].classList.add('active');
+
+            // Update dots
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
+            dots[n - 1].className += " active";
+
+            // Update slide index
+            slideIndex = n;
+        }
+
+        function startSlideshow() {
+            if (!isPaused) {
+                slideshowInterval = setInterval(function() {
+                    plusSlides(1);
+                }, 5000); // Change slide every 5 seconds
+            }
+        }
+
+        function pauseSlideshow() {
+            isPaused = true;
+            clearInterval(slideshowInterval);
+        }
+
+        function resumeSlideshow() {
+            isPaused = false;
+            startSlideshow();
+        }
+
+        function resetTimer() {
+            pauseSlideshow();
+            resumeSlideshow();
         }
     </script>
     <?php include './footer.php'; ?>

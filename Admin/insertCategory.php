@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="../css/admin.css" rel="stylesheet" type="text/css" />
-    <title>Insert Categories | Eversummer Florist</title>
+    <link href="../css/login.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Blooms Co. | Insert Category</title>
 </head>
 
 <body>
@@ -33,24 +36,27 @@
     }
     ?>
 
-    <div class="pageContent">
-        <p>Home/Admin/</p></br>
-        <p class="bold"><b>INSERT CATEGORIES</b></p>
-    </div>
-
-    <form action="" method="POST">
-        <div class="container2">
-            <div class="container">
-                <div class='fontsz'>
-                    <input type="text" name="cat_title" id="insCat" placeholder="Insert Categories" required>
-                </div>
-                <div class="logbtn">
-                    <br><input type="submit" value="INSERT" class="insBut" name="insert_cat" />
-                </div>
-            </div>
-            <div class="create"><a href="viewcategory.php">VIEW CATEGORIES</a></div>
+    <div class="login-container">
+        <div class="login-header">
+            <h2 class="login-title">INSERT CATEGORY</h2>
         </div>
-    </form>
+
+        <form action="" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="cat_title">CATEGORY NAME</label>
+                <input type="text" name="cat_title" id="cat_title" class="form-control" placeholder="Insert Category" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" name="insert_cat" class="loginbutM">INSERT</button>
+            </div>
+
+            <div class="create">
+                <a href="viewcategory.php">VIEW CATEGORIES</a>
+            </div>
+        </form>
+    </div>
+    <?php include '../php/footer.php'; ?>
 </body>
 
 </html>

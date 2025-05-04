@@ -49,14 +49,19 @@ if (isset($_POST['admin_login'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Login Admin | Eversummer Florist</title>
+    <title>Blooms Co. | Admin Login</title>
     <script>
         function togglePassword() {
-            var passwordInput = document.getElementById('admin_password');
+            const passwordInput = document.getElementById('admin_password');
+            const toggleButton = document.querySelector('.toggle-password');
+            const icon = toggleButton.querySelector('ion-icon');
+
             if (passwordInput.type === "password") {
                 passwordInput.type = "text";
+                icon.name = "eye-off-outline";
             } else {
                 passwordInput.type = "password";
+                icon.name = "eye-outline";
             }
         }
     </script>
@@ -65,35 +70,36 @@ if (isset($_POST['admin_login'])) {
 <body>
     <?php include './adminheader.php'; ?>
 
-    <div class="logintittle">
-        <p>Home/Account/</p></br>
-        <p class="bold"><b>ADMIN LOGIN</b></p>
-    </div>
+    <div class="login-container">
+        <div class="login-header">
+            <h2 class="login-title">ADMIN LOGIN</h2>
+        </div>
 
-    <form action="" method="post">
-        <div class="container2">
-            <div class="container">
-                <div class="fontsz">
-                    <!--username-->
-                    <label for="user_username">ADMIN ID</label><br>
-                    <input type="text" name="admin_ID" id="admin_ID"
-                        placeholder="Enter your username" required="required">
+        <form action="" method="post" class="login-form">
+            <div class="form-group">
+                <label for="admin_ID">ADMIN ID</label>
+                <input type="text" name="admin_ID" id="admin_ID" class="form-control" required>
+            </div>
 
-                    <!--pass-->
-                    <br><label for="user_password">PASSWORD</label><br>
-                    <input type="password" name="admin_password" id="admin_password"
-                        placeholder="Enter your password" required="required">
-                    <br><input type="checkbox" onclick="togglePassword()"> Show Password
+            <div class="form-group password-toggle">
+                <label for="admin_password">PASSWORD</label>
+                <div class="password-input-container">
+                    <input type="password" name="admin_password" id="admin_password" class="form-control" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </button>
                 </div>
             </div>
-        </div>
 
-        <div class="logbtn2">
-            <br><input type="submit" class="loginbutM" value="LOGIN" name="admin_login">
-        </div>
+            <div class="form-group">
+                <button type="submit" name="admin_login" class="loginbutM">LOGIN</button>
+            </div>
 
-        <div class="create">New Admin?<a href="registeradmin.php"> Register</a></div>
-    </form>
+            <div class="create">
+                New Admin? <a href="registeradmin.php">Register</a>
+            </div>
+        </form>
+    </div>
 
     <?php include '../php/footer.php'; ?>
 </body>

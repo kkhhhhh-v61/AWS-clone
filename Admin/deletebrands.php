@@ -6,7 +6,7 @@ include '../config/connect.php';
 if (isset($_GET['id'])) {
     $delete_id = $_GET['id'];
 
-    // Try to delete the brand
+    // Try to delete the category
     $delete_query = "DELETE FROM brands WHERE brand_id = $delete_id";
 
     try {
