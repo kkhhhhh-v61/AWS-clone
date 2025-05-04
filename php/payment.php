@@ -100,7 +100,7 @@
 
             <div class="form-group">
                 <label for="payDesc">PAYMENT DESCRIPTION</label>
-                <textarea id="payDesc" name="payDesc" required class="form-control">Payment for Sneaker Vault order</textarea>
+                <textarea id="payDesc" name="payDesc" required class="form-control">Payment for Blooms Co. purchase</textarea>
             </div>
 
             <div class="form-group">

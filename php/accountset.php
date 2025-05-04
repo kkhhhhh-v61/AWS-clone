@@ -119,7 +119,7 @@ $row = mysqli_fetch_assoc($user_info_result);
                         // Username
                         echo "<div class='detail-item' data-field='username'>
                         <span class='detail-label'>USERNAME</span>
-                        <span class='detail-value'>" . $row['username'] . "</span>
+                        <span class='detail-value' id='username_field'>" . $row['username'] . "</span>
                     </div>";
 
                         // Email
@@ -284,6 +284,10 @@ $row = mysqli_fetch_assoc($user_info_result);
                                 .then(data => {
                                     if (data.success) {
                                         valueSpan.textContent = newValue;
+                                        if (document.querySelector('#username_field') != $_SESSION['username']) {
+                                            header("Location: logout.php");
+                                            exit();
+                                        }
                                     } else {
                                         alert('Failed to update: ' + data.message);
                                     }
