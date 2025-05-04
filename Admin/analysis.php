@@ -8,6 +8,7 @@ $category_query = "SELECT c.category_title, SUM(od.quantity * p.product_price) a
                   JOIN categories c ON p.category_id = c.category_id
                   GROUP BY c.category_title";
 $category_result = mysqli_query($con, $category_query);
+$category_count = mysqli_num_rows($category_result);
 
 // Get product sales data
 $sales_query = "SELECT p.product_name, SUM(od.quantity) as total_quantity
@@ -17,6 +18,7 @@ $sales_query = "SELECT p.product_name, SUM(od.quantity) as total_quantity
                ORDER BY total_quantity DESC
                LIMIT 10";
 $sales_result = mysqli_query($con, $sales_query);
+$sales_count = mysqli_num_rows($sales_result);
 
 
 ?>
@@ -81,8 +83,12 @@ $sales_result = mysqli_query($con, $sales_query);
                 var data = google.visualization.arrayToDataTable([
                     ['Category', 'Total Sales']
                     <?php
-                    while ($row = mysqli_fetch_assoc($category_result)) {
-                        echo ",['" . $row['category_title'] . "', " . $row['total_sales'] . "]";
+                    if ($category_count > 0) {
+                        while ($row = mysqli_fetch_assoc($category_result)) {
+                            echo ",['" . $row['category_title'] . "', " . $row['total_sales'] . "]";
+                        }
+                    } else {
+                        echo ",['No Data', 0]";
                     }
                     ?>
                 ]);
@@ -130,8 +136,12 @@ $sales_result = mysqli_query($con, $sales_query);
                 var data = google.visualization.arrayToDataTable([
                     ['Product', 'Quantity Sold']
                     <?php
-                    while ($row = mysqli_fetch_assoc($sales_result)) {
-                        echo ",['" . $row['product_name'] . "', " . $row['total_quantity'] . "]";
+                    if ($sales_count > 0) {
+                        while ($row = mysqli_fetch_assoc($sales_result)) {
+                            echo ",['" . $row['product_name'] . "', " . $row['total_quantity'] . "]";
+                        }
+                    } else {
+                        echo ",['No Data', 0]";
                     }
                     ?>
                 ]);
@@ -144,6 +154,10 @@ $sales_result = mysqli_query($con, $sales_query);
                         titleTextStyle: {
                             color: '#333',
                             fontSize: 14
+                        },
+                        format: '0',
+                        gridlines: {
+                            count: 10
                         }
                     },
                     hAxis: {
@@ -163,13 +177,21 @@ $sales_result = mysqli_query($con, $sales_query);
     </div>
     <div class="analysis-container">
         <div class="chart-container">
-            <h2>Total Sales by Category</h2>
-            <div id="piechart1" style="width: 800px; height: 550px;"></div>
+            <h2>Total Sales by Category in Price</h2>
+            <?php if ($category_count == 0): ?>
+                <p style="text-align: center; padding: 20px; color: #666;">No sales data available for categories.</p>
+            <?php else: ?>
+                <div id="piechart1" style="width: 800px; height: 550px;"></div>
+            <?php endif; ?>
         </div>
 
         <div class="chart-container">
             <h2>Top 10 Products by Sales Quantity</h2>
-            <div id="histogram" style="width: 800px; height: 550px;"></div>
+            <?php if ($sales_count == 0): ?>
+                <p style="text-align: center; padding: 20px; color: #666;">No sales data available for products.</p>
+            <?php else: ?>
+                <div id="histogram" style="width: 800px; height: 550px;"></div>
+            <?php endif; ?>
         </div>
 
 

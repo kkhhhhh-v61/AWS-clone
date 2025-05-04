@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling.querySelector('ion-icon');
+
+            if (input.type === "password") {
+                input.type = "text";
+                icon.name = "eye-outline";
+            } else {
+                input.type = "password";
+                icon.name = "eye-off-outline";
+            }
+        }
+    </script>
     <title>Blooms Co. | Admin Registration</title>
 </head>
 
@@ -27,14 +41,24 @@
             <input type="text" name="admin_id" id="admin_id" class="form-control" required>
         </div>
 
-        <div class="form-group">
+        <div class="form-group password-toggle">
             <label for="admin_password">PASSWORD</label>
-            <input type="password" name="admin_password" id="admin_password" class="form-control" required>
+            <div class="password-input-container">
+                <input type="password" name="admin_password" id="admin_password" class="form-control" required>
+                <button type="button" class="toggle-password" onclick="togglePasswordVisibility('admin_password')">
+                    <ion-icon name="eye-outline"></ion-icon>
+                </button>
+            </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group password-toggle">
             <label for="con_admin_password">CONFIRM PASSWORD</label>
-            <input type="password" name="con_admin_password" id="con_admin_password" class="form-control" required>
+            <div class="password-input-container">
+                <input type="password" name="con_admin_password" id="con_admin_password" class="form-control" required>
+                <button type="button" class="toggle-password" onclick="togglePasswordVisibility('con_admin_password')">
+                    <ion-icon name="eye-outline"></ion-icon>
+                </button>
+            </div>
         </div>
 
         <div class="form-group">
@@ -80,7 +104,8 @@ if (isset($_POST['admin_register'])) {
     $sql_execute = mysqli_query($con, $insert_query);
 
     if ($sql_execute) {
-        echo "<script>alert('Admin Registered.')</script>";
+        echo "<script>alert('Admin Registered successfully! Redirecting to login page...')</script>";
+        echo "<script>window.location.href = 'adminlogin.php';</script>";
     } else {
         echo "<script>alert('Error Registering Admin.')</script>";
     }

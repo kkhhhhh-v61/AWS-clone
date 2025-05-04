@@ -6,6 +6,64 @@
     <meta charset="UTF-8">
     <link href="../css/login.css" rel="stylesheet" type="text/css" />
     <link href="../css/homepage.css" rel="stylesheet" type="text/css" />
+    <style>
+        .featured-toggle {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .toggle-label {
+            cursor: pointer;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #4CAF50;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+    </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -21,28 +79,39 @@
         $edit_id = $_GET['id'];
         $get_data = "Select * from products where product_id = $edit_id";
         $result = mysqli_query($con, $get_data);
-        $row = mysqli_fetch_assoc($result);
-        $product_name = $row['product_name'];
-        $product_description = $row['product_description'];
-        $product_price = $row['product_price'];
-        $product_keywords = $row['product_keywords'];
-        $category_id = $row['category_id'];
-        $brand_id = $row['brand_id'];
-        $product_image1 = $row['product_image1'];
-        $product_image2 = $row['product_image2'];
-        $product_image3 = $row['product_image3'];
 
-        //Fetching Category Name
-        $select_category = "Select * from categories where category_id=$category_id";
-        $result_category = mysqli_query($con, $select_category);
-        $row_category = mysqli_fetch_assoc($result_category);
-        $category_title = $row_category['category_title'];
+        if ($result && $row = mysqli_fetch_assoc($result)) {
+            $product_name = $row['product_name'];
+            $product_description = $row['product_description'];
+            $product_price = $row['product_price'];
+            $product_keywords = $row['product_keywords'];
+            $category_id = $row['category_id'];
+            $brand_id = $row['brand_id'];
+            $product_image1 = $row['product_image1'];
+            $product_image2 = $row['product_image2'];
+            $product_image3 = $row['product_image3'];
+            $isFeatured = isset($row['isFeatured']) ? $row['isFeatured'] : 0;
 
-        //Fetching Brand Name
-        $select_brand = "Select * from brands where brand_id=$brand_id";
-        $result_brand = mysqli_query($con, $select_brand);
-        $row_brand = mysqli_fetch_assoc($result_brand);
-        $brand_title = $row_brand['brand_title'];
+            //Fetching Category Name
+            $select_category = "Select * from categories where category_id=$category_id";
+            $result_category = mysqli_query($con, $select_category);
+            $row_category = mysqli_fetch_assoc($result_category);
+            $category_title = $row_category['category_title'] ?? 'Unknown Category';
+
+            //Fetching Brand Name
+            $select_brand = "Select * from brands where brand_id=$brand_id";
+            $result_brand = mysqli_query($con, $select_brand);
+            $row_brand = mysqli_fetch_assoc($result_brand);
+            $brand_title = $row_brand['brand_title'] ?? 'Unknown Brand';
+        } else {
+            echo "<script>alert('Product not found! Redirecting to products list...')</script>";
+            echo "<script>window.location.href = 'viewproduct.php';</script>";
+            exit();
+        }
+    } else {
+        echo "<script>alert('Product ID not provided! Redirecting to products list...')</script>";
+        echo "<script>window.location.href = 'viewproduct.php';</script>";
+        exit();
     }
     ?>
 
@@ -126,6 +195,16 @@
             </div>
 
             <div class="form-group">
+                <label>FEATURED PRODUCT</label>
+                <div class="featured-toggle">
+                    <label class="switch">
+                        <input type="checkbox" name="isFeatured" id="isFeatured" <?php echo $isFeatured ? 'checked' : '' ?>>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <button type="submit" name="update_product" class="loginbutM">UPDATE</button>
             </div>
 
@@ -180,7 +259,8 @@
             echo "<script>alert('Please fill all the required fields')</script>";
         } else {
             //query to update products
-            $update_product = "update products set product_name='$product_name', product_description='$product_description', product_price='$product_price', product_keywords='$product_keywords', category_id='$category_id', brand_id='$brand_id', product_image1='$product_image1', product_image2='$product_image2', product_image3='$product_image3', date=NOW() where product_id=$edit_id";
+            $isFeatured = isset($_POST['isFeatured']) ? 1 : 0;
+            $update_product = "update products set product_name='$product_name', product_description='$product_description', product_price='$product_price', product_keywords='$product_keywords', category_id='$category_id', brand_id='$brand_id', product_image1='$product_image1', product_image2='$product_image2', product_image3='$product_image3', date=NOW(), isFeatured=$isFeatured where product_id=$edit_id";
             $result_update = mysqli_query($con, $update_product);
             if ($result_update) {
                 echo "<script>alert('Product updated successfully')</script>";

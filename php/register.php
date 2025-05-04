@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling.querySelector('ion-icon');
+
+            if (input.type === "password") {
+                input.type = "text";
+                icon.name = "eye-outline";
+            } else {
+                input.type = "password";
+                icon.name = "eye-off-outline";
+            }
+        }
+    </script>
     <title>Blooms Co. | Register</title>
 </head>
 
@@ -49,7 +63,7 @@
             <label for="user_password">PASSWORD</label>
             <div class="password-input-container">
                 <input type="password" name="user_password" id="user_password" class="form-control" required minlength="7">
-                <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+                <button type="button" class="toggle-password" onclick="togglePasswordVisibility('user_password')">
                     <ion-icon name="eye-outline"></ion-icon>
                 </button>
             </div>
@@ -59,7 +73,7 @@
             <label for="con_user_password">CONFIRM PASSWORD</label>
             <div class="password-input-container">
                 <input type="password" name="con_user_password" id="con_user_password" class="form-control" required minlength="7">
-                <button type="button" class="toggle-password" onclick="togglePasswordVisibility2()">
+                <button type="button" class="toggle-password" onclick="togglePasswordVisibility('con_user_password')">
                     <ion-icon name="eye-outline"></ion-icon>
                 </button>
             </div>
@@ -161,7 +175,8 @@ if (isset($_POST['user_register'])) {
         $sql_execute = mysqli_query($con, $insert_query);
 
         if ($sql_execute) {
-            echo "<script>alert('User is Registered!.')</script>";
+            echo "<script>alert('User Registered successfully! Redirecting to login page...')</script>";
+            echo "<script>window.location.href = 'login.php';</script>";
         } else {
             echo "<script>alert('Error Registering User.')</script>";
         }

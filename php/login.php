@@ -114,10 +114,10 @@ if (isset($_POST['user_login'])) {
 
             if (passwordInput.type === "password") {
                 passwordInput.type = "text";
-                icon.name = "eye-off-outline";
+                icon.name = "eye-outline";
             } else {
                 passwordInput.type = "password";
-                icon.name = "eye-outline";
+                icon.name = "eye-off-outline";
             }
         }
     </script>
