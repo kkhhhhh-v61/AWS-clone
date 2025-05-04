@@ -1,18 +1,16 @@
-# Bloms Co. Website
+# Blooms Co. Website
 
-A website for a florist company using HTML, CSS, PHP, JavaScript, and MySQL.
+A website for selling graduation-related products using HTML, CSS, PHP, JavaScript, and MySQL.
 
 ## Features
 
 ### User Features
 
-- User Registration and Authentication
-- Profile Management (including address and contact details)
-- Product Browsing with Categories and Brands
+- User Registration and Login
+- Account Management with Edit Functionality
+- Product Browsing with Filtering
 - Shopping Cart Functionality
-- Order Placement and Tracking
-- Product Reviews and Ratings
-- Wishlist Management
+- Order Placement and View Order Details
 
 ### Admin Features
 
@@ -21,7 +19,6 @@ A website for a florist company using HTML, CSS, PHP, JavaScript, and MySQL.
 - Category and Brand Management
 - Order Management
 - Sales Analytics
-- Featured Products Management
 
 ## Tech Stack
 
@@ -31,7 +28,7 @@ A website for a florist company using HTML, CSS, PHP, JavaScript, and MySQL.
   - JavaScript
   - Responsive Design
 - Backend:
-  - PHP 7.x
+  - PHP 8.4.4
   - MySQL
 - Additional Features:
   - Session Management
@@ -52,35 +49,6 @@ The project uses a normalized database schema with the following key tables:
 - `orders`: Stores order information
 - `order_details`: Stores individual order items
 - `product_sales`: Tracks product sales statistics
-
-## Project Structure
-
-```
-AWS-clone-main/
-├── Admin/              # Admin dashboard files
-│   ├── dashboard.php
-│   ├── manage_products.php
-│   ├── manage_orders.php
-│   └── ...
-├── css/               # Stylesheets
-│   ├── style.css
-│   ├── admin.css
-│   └── responsive.css
-├── functions/         # PHP functions
-│   └── functions.php
-├── images/           # Product and user images
-├── javascript/       # JavaScript files
-│   ├── main.js
-│   └── admin.js
-├── php/              # Main PHP files
-│   ├── homepage.php
-│   ├── products.php
-│   ├── cart.php
-│   └── checkout.php
-├── config/           # Configuration files
-│   └── database.php
-└── sql.txt          # Database schema
-```
 
 ## Setup Instructions
 
